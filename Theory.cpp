@@ -140,6 +140,7 @@ void exampleOverloadingAndTemplates() {
 };
 
 void exampleArrays() {
+	
 	//Arrays can be declared statically or dynamically. And the array can be initialized with values or they can be added later.
 	int arrayStaticValues[5] = { 1,2,3,4,5 };
 
@@ -153,4 +154,5 @@ void exampleArrays() {
 
 	//To avoid manual memory management use of smart pointers is recommended.
 	std::unique_ptr<int[]> arrayName(new int[n]);
+	
 };
