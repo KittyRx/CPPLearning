@@ -3,7 +3,7 @@
 <span style="color:pink">Just a bunch of mumbo jumbo for C++</span>
 
 ## Structure
-Lessons are writen down as I learn them in the 1. [**Theory**](./Theory.cpp) file with simple explanations and examples:
+Lessons are writen down as I learn them in the [**Theory**](./Theory.cpp) file with simple explanations and examples:
 
 1. [**Namespaces**](./Theory.cpp#L10)
 2. [**Renaming data types**](./Theory.cpp#L40)
