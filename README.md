@@ -1,4 +1,4 @@
-<span style="color:pink"># CPPLearning 🩷</span>
+<span style="color:pink"># CPPLearning</span>🩷
 
 Just a bunch of mumbo jumbo for C++
 
@@ -7,5 +7,5 @@ Just a bunch of mumbo jumbo for C++
   <summary>READ.md tooltips</summary>
   - `#L42` appended at the end of address for line jump
   - `![Alt text]` or `![Logo]` for images
-  - <pre></pre> for multiline code
+  - `<pre></pre>` for multiline code
 </details>
