@@ -167,6 +167,6 @@ void exampleArrays() {
 	std::string example = "std::string function(std::string strings[]){}";
 
 	//Minimal detail I never use when looping
-	for (std::string example : examples) {};
+	for (std::string string : strings) {};
 
 };
