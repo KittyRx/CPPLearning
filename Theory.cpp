@@ -91,9 +91,9 @@ void exampleInputAndOutput() {
 void exampleOverloadingAndTemplates() {
 
 	//As opposed to TS, where you can declare different optional arguments to overload a function, the cpp overload is:
-	std::string "function(int argument) {}";
-	std::string "function(std::string argument) {}";
-	std::string "function(double argument) {}";
+	std::string example = "int function(int argument) {}";
+	std::string example = "std::string function(std::string argument) {}";
+	std::string example = "double function(double argument) {}";
 
 	//But, instead of declaring it like 3 different functions with the same name but different signatures (  name + parameters  ), we can use templates.
 	template<typename T>
@@ -102,11 +102,11 @@ void exampleOverloadingAndTemplates() {
 	Here "T" is fulfilling the role of a placeholder for the type of argument passed to the function.
 	Which will be defined once the function is called with a specific type.
 	***/
-	std::string "function(T argument) {}";
+	std::string example = "dataType function(T argument) {}";
 
 	//We can either do type comparisons without defining when the type is known, be it at compile time or runtime.
 	if (std::is_same_v< T, int typeExpected>) {
-		std::string "returnLogic";
+		std::string example = "return dataType Logic";
 	};
 
 	/***
@@ -114,7 +114,7 @@ void exampleOverloadingAndTemplates() {
 	Meaning it can clean overhead at compile time but can break if used with runtime data checks.
 	***/
 	if constexpr (std::is_same_v< T, int typeExpected>) {
-		std::string "returnLogic";
+		std::string example = "return dataType Logic";
 	}
 
 	/***
@@ -127,11 +127,11 @@ void exampleOverloadingAndTemplates() {
 	but not instanced per variable, where ( argument1, argument2 ) might be different types.
 	***/
 	template<typename S, typename U, typename V>
-	std::string "function(S argument1, U argument2, V argument3) {}";
+	std::string example = "dataType function(S argument1, U argument2, V argument3) {}";
 
 	//And then run comparison and logic based on types inside.
 	if (std::is_same_v< S, int typeExpected>) {
-		std::string "returnLogic";
+		std::string example = "return Logic";
 	};
 
 	// There is also the alternative of using "auto" for type deduction, but it is compile deduced and not as flexible, its basically lazy typing and slightly safer than using "any" in typescript.
@@ -140,7 +140,7 @@ void exampleOverloadingAndTemplates() {
 };
 
 void exampleArrays() {
-	
+
 	//Arrays can be declared statically or dynamically. And the array can be initialized with values or they can be added later.
 	int arrayStaticValues[5] = { 1,2,3,4,5 };
 
@@ -154,5 +154,19 @@ void exampleArrays() {
 
 	//To avoid manual memory management use of smart pointers is recommended.
 	std::unique_ptr<int[]> arrayName(new int[n]);
-	
+
+	//Can use "sizeof" to determine the size of array in bytes.
+	sizeof(arrayStaticValues);
+
+	//This can also be used to determine the number of elements in a static array.
+	std::string strings[] = { "one","two","three" };
+	sizeof(strings) / sizeof(std::string);
+	sizeof(strings) / sizeof(names[0]);
+
+	//When passing an array to a function it decays to a pointer so the sizeof does not work as expected.
+	std::string example = "std::string function(std::string strings[]){}";
+
+	//Minimal detail I never use when looping
+	for (std::string example : examples) {};
+
 };
