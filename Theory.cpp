@@ -169,4 +169,43 @@ void exampleArrays() {
 	//Minimal detail I never use when looping
 	for (std::string string : strings) {};
 
+	//Arrays can also be multi dimensional, akin to matrixes.
+	std::string elements[3][3] = {
+		{"one","two","three"},
+		{"four","five","six"},
+		{"seven","eight","nine"}
+	};
+
+	//Which can be used similarly to an ECS system for entity component storage or movement logic.
+	enum ComponentIndex {
+		POS_X,
+		POS_Y,
+		POS_Z,
+		VEL_X,
+		VEL_Y,
+		VEL_Z,
+		COUNT
+	};
+
+	//We might want to also declare this dynamically later on but for now its a static value to showcase the concept.
+	const ENTITY_COUNT = 2;
+
+	//We can either declare "component_count" or use the safer "count" method and access it as a member of the enum.
+	float movementLogic[ENTITY_COUNT][ComponentIndex::COUNT] = {
+		{1.0f, 2.0f, 3.0f, 0.1f, 0.2f, 0.3f},  // Entity 0
+		{4.0f, 5.0f, 6.0f, 0.4f, 0.5f, 0.6f},  //Entity 1
+	};
+
+	//So here accesing position of entity 1 on the Y axis would be:
+	float entity1POS_Y = movementLogic[1][ComponentIndex::POS_Y]; //Outputs 5.0f
+
+	//And if we really wanted to create a key value sort of system in multidimensional arrays we can always just use 2 enums.
+	enum entityIndex {
+		ENTITY_0,
+		ENTITY_1,
+	};
+
+	//And then access it accordingly.
+	float entity0POS_Z = movementLogic[entityIndex::ENTITY_0][ComponentIndex::POS_Z]; //Outputs 3.0f
+
 };
