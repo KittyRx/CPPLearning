@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-int main()
+void Questionaire()
 {
 
 	int score = 0;
@@ -59,7 +59,9 @@ int main()
 			getline(cin >> ws, reply);
 			// If yes next question.
 			if (reply == "yes" || reply == "y")
-			{
+			{	string skipconfirm = "skipped";
+				cout << "Question skipped." << endl;
+				reply = skipconfirm;
 				break;
 			}
 			// If no ask the question again.
@@ -72,7 +74,7 @@ int main()
 		};
 
 		// Then check if the answers are correct.
-		if (reply != answers[i])
+		if (reply != answers[i] && reply != "skipped")
 		{
 			score -= 1;
 		}
@@ -85,5 +87,4 @@ int main()
 	// Output results:
 	cout << "Your score is : " << score << " out of " << questionsCount << endl;
 
-	return 0;
 };
