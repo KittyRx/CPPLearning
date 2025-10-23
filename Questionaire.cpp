@@ -2,89 +2,68 @@
 #include <string>
 using namespace std;
 
-void Questionaire()
+int main()
 {
-
 	int score = 0;
 
-	// First we define questions.
-	string questions[] = {
-		"What is the capital of France?",
-		"What is 2 + 2?",
-		"What is the largest planet in our solar system?"};
-
-	// Define the size of questions array.
-	int questionsCount = sizeof(questions) / sizeof(string);
-
-	// Define the correct answers.
-	string answers[] = {
-		"Paris",
-		"4",
-		"Jupiter"};
-
-	// Then we define options for answers.
-	string answerOptions[3][4] = {
-		{"Paris", "London", "Berlin", "Madrid"},
-		{"3", "5", "4", "22"},
-		{"Earth", "Mars", "Saturn", "Jupiter"}};
-
-	int answersSize = sizeof(answerOptions) / sizeof(string);
-
-	// We create a simple display for the quizz.
-	cout << "Quizz Time!" << endl;
-	cout << "Answer the following questions by entering the number corresponding to your answer." << endl;
-
-	// Loop to display all questions.
-	for (int i = 0; i < questionsCount; i++)
+	enum QA
 	{
-		cout << questions[i] << endl;
+		Question,
+		AnswerA,
+		AnswerB,
+		AnswerC,
+		AnswerD,
+		COUNT
+	};
 
-		// And all answers for each question.
-		for (string answer : answerOptions[i])
-		{
-			cout << " - " << answer << endl;
-		};
+	// Quiz data: 3 questions, each with 4 answers
+	string data[3][COUNT] = {
+		{"What is the capital of France?", "Paris", "London", "Berlin", "Madrid"},
+		{"What is 2 + 2?", "3", "5", "4", "22"},
+		{"What is the largest planet in our solar system?", "Earth", "Mars", "Saturn", "Jupiter"}};
 
-		// Get user answer for each question.
+	// Correct answers: by full string and by letter
+	string correctAnswers[2][3] = {
+		{"Paris", "4", "Jupiter"},
+		{"A", "C", "D"}};
+
+	cout << "Quiz Time!" << endl;
+	cout << "Answer the following questions by entering A, B, C, or D." << endl;
+
+	for (int i = 0; i < 3; i++)
+	{
+		cout << "\n"
+			 << data[i][Question] << "\n\n";
+		cout << "A. " << data[i][AnswerA] << endl;
+		cout << "B. " << data[i][AnswerB] << endl;
+		cout << "C. " << data[i][AnswerC] << endl;
+		cout << "D. " << data[i][AnswerD] << endl;
+
 		string reply;
-		cout << "Your answer:" << endl;
+		cout << "\nYour answer: ";
 		getline(cin, reply);
 
-		// Empty answers loop.
 		while (reply.empty())
 		{
-			// Create a skip for those who don't want to answer.
-			cout << "Would you like to skip this question(yes/y | no/n) ?" << endl;
-			cout << "Your choice:" << endl;
-			getline(cin >> ws, reply);
-			// If yes next question.
-			if (reply == "yes" || reply == "y")
-			{	string skipconfirm = "skipped";
-				cout << "Question skipped." << endl;
-				reply = skipconfirm;
-				break;
-			}
-			// If no ask the question again.
-			else
-			{
-				cout << questions[i] << endl;
-				cout << "Your answer:" << endl;
-				getline(cin >> ws, reply);
-			};
-		};
+			cout << "Please provide an answer: ";
+			getline(cin, reply);
+		}
 
-		// Then check if the answers are correct.
-		if (reply != answers[i] && reply != "skipped")
+		// Normalize input to uppercase
+		if (reply.size() == 1)
+			reply[0] = toupper(reply[0]);
+
+		// Check if reply matches correct answer
+		if (reply == correctAnswers[0][i] || reply == correctAnswers[1][i])
+		{
+			score += 1;
+		}
+		else if (reply != correctAnswers[0][i] || reply != correctAnswers[1][i])
 		{
 			score -= 1;
 		}
-		else
-		{
-			score += 1;
-		};
-	};
+	}
 
-	// Output results:
-	cout << "Your score is : " << score << " out of " << questionsCount << endl;
-
-};
+	cout << "\nFinal Score: " << score << "Points" << endl;
+	return 0;
+}
