@@ -12,6 +12,11 @@ Lessons are writen down as I learn them in the [**Theory**](./Theory.cpp) file w
 5. [**Arrays**](./Theory.cpp#L147) 
 6. [**Memory**](./Theory.cpp#L221)
 
+## Exercises
+
+1. A simple [**Questionaire**](./Questionaire.cpp) script.
+2. Redo of [**TicTacToe**](./Questionaire.cpp) game by CodeBro.
+
 <details>
   <summary>READ.md tooltips</summary>
   
