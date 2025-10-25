@@ -5,11 +5,12 @@
 ## Structure
 Lessons are writen down as I learn them in the [**Theory**](./Theory.cpp) file with simple explanations and examples:
 
-1. [**Namespaces**](./Theory.cpp#L10)
-2. [**Renaming data types**](./Theory.cpp#L40)
-3. [**Input and Output**](./Theory.cpp#L58)
-4. [**Overloading Functions and Templates**](./Theory.cpp#L91)
-5. [**Arrays**](./Theory.cpp#L142) 
+1. [**Namespaces**](./Theory.cpp#L21)
+2. [**Renaming data types**](./Theory.cpp#L42)
+3. [**Input and Output**](./Theory.cpp#L60)
+4. [**Overloading Functions and Templates**](./Theory.cpp#L96)
+5. [**Arrays**](./Theory.cpp#L147) 
+6. [**Memory**](./Theory.cpp#L221)
 
 <details>
   <summary>READ.md tooltips</summary>
