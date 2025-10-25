@@ -2,7 +2,8 @@
 #include <string>
 using namespace std;
 
-int main()
+// Replace with main to run.
+int Questionaire()
 {
 	int score = 0;
 

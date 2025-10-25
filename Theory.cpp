@@ -217,3 +217,25 @@ void exampleArrays()
 	// And then access it accordingly.
 	float entity0POS_Z = movementLogic[entityIndex::ENTITY_0][ComponentIndex::POS_Z]; // Outputs 3.0f
 };
+
+void memory()
+{
+
+	// Memory can be accessed with &.
+	int age = 99;
+
+	// Like so.
+	std::cout << &age << std::endl;
+
+	/***
+	Pasing arguments to a function is usually done by value which copies the original values of the arguments.
+	In order to change the original values, we pass by reference "&value" or by pointer.
+	***/ 
+	std::string name = "NameCreative";
+
+	//  "*" dereferencing value and pointing at its address "&".
+	std::string *pName = &name;
+
+	// Always initialize manual pointers even if its with "nullptr" and check if the pointer was assigned an address before "*" dereferencing.
+	int *pointer = nullptr;
+};
