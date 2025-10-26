@@ -230,7 +230,7 @@ void memory()
 	/***
 	Pasing arguments to a function is usually done by value which copies the original values of the arguments.
 	In order to change the original values, we pass by reference "&value" or by pointer.
-	***/ 
+	***/
 	std::string name = "NameCreative";
 
 	//  "*" dereferencing value and pointing at its address "&".
@@ -238,4 +238,86 @@ void memory()
 
 	// Always initialize manual pointers even if its with "nullptr" and check if the pointer was assigned an address before "*" dereferencing.
 	int *pointer = nullptr;
+
+	// Dynamic memory (after the program is compiled) allocated at runtime.
+	int *pNum = NULL;
+	pNum = new int;
+
+	// Substitute with data input or math from received data.
+	*pNum = 2;
+
+	// Dealocate memory from heap.
+	delete pNum;
+};
+
+// Recursion, less code but more memory use. Useful for sorting algorythms.
+void recursionWalk(int steps)
+{
+
+	// Call the function within itself.
+	if (steps > 0)
+	{
+		recursionWalk(steps - 1);
+	};
+};
+
+// Structs are structures that group related variables under one name.
+void structs()
+{
+	// Similar to schemas in json.
+	struct student
+	{
+		// Can set default values at initialization, unlike enums where you can only alter the index.
+		std::string name;
+		double gpa;
+		bool enrolled;
+	};
+
+	student Johny;
+	student Judith;
+	student Jake;
+
+	Johny.enrolled = true;
+	Judith.gpa = 2.1;
+	Jake.name = "Bonkers";
+};
+
+// Classes, members, and constructors.
+void classes()
+{
+
+	// Refering to same named values say in a constructor.
+	class Student
+	{
+	private:
+		int creditCardNumber = 666;
+
+		// You can either specify what "friends" aka functions can access the private members directly.
+		friend void giveHackerFreeStuff();
+
+		// Or you can use a getter to read the data.
+		int getCreditCardNumberForNSA()
+		{
+			return creditCardNumber;
+		};
+
+		// And a setter to change the data inside the private member
+		void setMakeStudentBroke(int fakeCard)
+		{
+			creditCardNumber = fakeCard;
+		};
+
+	public:
+		std::string name;
+		int age;
+		double gpa;
+
+		// Refering to the constructors arguments of same name by calling this ( local scope ) value.
+		Student(std::string name, int age, double gpa)
+		{
+			this->name = name;
+			this->age = age;
+			this->gpa = gpa;
+		};
+	};
 };
