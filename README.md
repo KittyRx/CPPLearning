@@ -1,6 +1,6 @@
 # C++ Learning🩷
 
-<span style="color:pink">Just a bunch of mumbo jumbo for C++</span>
+Just a bunch of mumbo jumbo for C++
 
 ## Structure
 Lessons are writen down as I learn them in the [**Theory**](./Theory.cpp) file with simple explanations and examples:
